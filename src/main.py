@@ -58,9 +58,9 @@ class DisplayDriver:
 
 ResetPress = False
 
-tt_uo_out0_pin = 33
+tt_uio0_pin = 25
 
-display = DisplayDriver(tt_uo_out0_pin)
+display = DisplayDriver(tt_uio0_pin)
 
 def segment_test(on_ms: int = 150, off_ms: int = 150, flash_count: int = 4):
     global ResetPress
