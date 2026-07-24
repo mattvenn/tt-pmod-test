@@ -66,6 +66,10 @@ jobs:
       - name: Copy custom board definition
         run: |
           cp -r tt_rp2350_board/ micropython/ports/rp2/boards/
+          board_cmake=micropython/ports/rp2/boards/tt_rp2350_board/mpconfigboard.cmake
+          if ! grep -q "^set(PICO_FLASH_SIZE_BYTES " "$board_cmake"; then
+            echo "set(PICO_FLASH_SIZE_BYTES 4194304)" >> "$board_cmake"
+          fi
 
       - name: Prepare FS root
         working-directory: sdk_repo
